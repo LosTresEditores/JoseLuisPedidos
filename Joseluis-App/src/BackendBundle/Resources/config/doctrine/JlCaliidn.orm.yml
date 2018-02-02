@@ -1,0 +1,98 @@
+BackendBundle\Entity\JlCaliidn:
+    type: entity
+    table: jl_caliidn
+    indexes:
+        fk_jl_caliidn_product:
+            columns:
+                - id_product
+        fk_jl_p_user:
+            columns:
+                - id_user_p
+        fk_jl_c_user:
+            columns:
+                - id_user_c
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        caliidn:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        countPS1:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: count_p_s1
+        countPS2:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: count_p_s2
+        countCS1:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: count_c_s1
+        countCS2:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: count_c_s2
+        dateP:
+            type: datetime
+            nullable: true
+            column: date_p
+        dateC:
+            type: datetime
+            nullable: true
+            column: date_c
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idUserC:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user_c:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idProduct:
+            targetEntity: Product
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_product:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUserP:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user_p:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

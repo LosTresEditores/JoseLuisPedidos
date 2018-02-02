@@ -1,0 +1,14 @@
+product_category_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:ProductCategory:new' }
+    methods: POST
+
+product_category_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:ProductCategory:edit', id:null }
+    methods: POST
+
+product_category_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:ProductCategory:list' }
+    methods: POST

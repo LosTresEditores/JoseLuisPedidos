@@ -1,0 +1,58 @@
+BackendBundle\Entity\EmbalajePedido:
+    type: entity
+    table: embalaje_pedido
+    indexes:
+        fk_embalaje_pedido_ec:
+            columns:
+                - id_embalaje_caja
+        fk_embalaje_pedido_od:
+            columns:
+                - id_order_detail
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        caja:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        cantidad:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        idEmbalajeCaja:
+            targetEntity: EmbalajeCaja
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_embalaje_caja:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idOrderDetail:
+            targetEntity: OrderDetail
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_order_detail:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

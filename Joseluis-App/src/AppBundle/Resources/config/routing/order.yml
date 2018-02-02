@@ -1,0 +1,39 @@
+order_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:Order:new' }
+    methods: POST
+
+order_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Order:edit', id:null }
+    methods: POST
+
+order_copy:
+    path: /copy/{id}
+    defaults: { _controller: 'AppBundle:Order:copy', id:null }
+    methods: POST
+
+order_copy_calificacion:
+    path: /copy-calificacion/{id}
+    defaults: { _controller: 'AppBundle:Order:copyCalificacion', id:null }
+    methods: POST
+
+order_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:Order:list' }
+    methods: POST
+
+order_list_role:
+    path: /list-role
+    defaults: { _controller: 'AppBundle:Order:listRole' }
+    methods: POST
+
+order_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:Order:search', search:null }
+    methods: POST
+
+order_report:
+    path: /report/{id}
+    defaults: { _controller: 'AppBundle:Order:report', id:null }
+    methods: POST

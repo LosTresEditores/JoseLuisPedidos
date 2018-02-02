@@ -1,0 +1,14 @@
+wineries_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:Wineries:new' }
+    methods: POST
+
+wineries_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Wineries:edit', id:null }
+    methods: POST
+
+wineries_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:Wineries:list' }
+    methods: POST

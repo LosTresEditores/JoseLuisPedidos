@@ -1,0 +1,14 @@
+order_type_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:OrderType:new' }
+    methods: POST
+
+order_type_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:OrderType:edit', id:null }
+    methods: POST
+
+order_type_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:OrderType:list' }
+    methods: POST

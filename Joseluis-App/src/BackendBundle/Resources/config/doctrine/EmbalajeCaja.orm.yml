@@ -1,0 +1,47 @@
+BackendBundle\Entity\EmbalajeCaja:
+    type: entity
+    table: embalaje_caja
+    indexes:
+        fk_embalaje_caja_emb:
+            columns:
+                - id_embalaje
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        observation:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idEmbalaje:
+            targetEntity: Embalaje
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_embalaje:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

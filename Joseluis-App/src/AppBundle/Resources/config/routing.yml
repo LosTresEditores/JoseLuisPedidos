@@ -1,0 +1,83 @@
+app_default:
+    resource: '@AppBundle/Resources/config/routing/default.yml'
+    prefix: /
+
+app_user:
+    resource: '@AppBundle/Resources/config/routing/user.yml'
+    prefix: /user
+
+app_order:
+    resource: '@AppBundle/Resources/config/routing/order.yml'
+    prefix: /order
+
+app_order_detail:
+    resource: '@AppBundle/Resources/config/routing/order_detail.yml'
+    prefix: /order-detail
+
+app_product:
+    resource: '@AppBundle/Resources/config/routing/product.yml'
+    prefix: /product
+
+app_wineries:
+    resource: '@AppBundle/Resources/config/routing/wineries.yml'
+    prefix: /wineries
+
+app_school:
+    resource: '@AppBundle/Resources/config/routing/school.yml'
+    prefix: /school
+
+app_shipping:
+    resource: '@AppBundle/Resources/config/routing/shipping.yml'
+    prefix: /shipping
+
+app_shipping_type:
+    resource: '@AppBundle/Resources/config/routing/shipping_type.yml'
+    prefix: /shipping-type
+
+app_order_type:
+    resource: '@AppBundle/Resources/config/routing/order_type.yml'
+    prefix: /order-type
+
+app_city:
+    resource: '@AppBundle/Resources/config/routing/city.yml'
+    prefix: /city
+
+app_product_category:
+    resource: '@AppBundle/Resources/config/routing/product_category.yml'
+    prefix: /product-category
+
+app_product_wineries:
+    resource: '@AppBundle/Resources/config/routing/product_wineries.yml'
+    prefix: /product-wineries
+
+app_value_seller_product:
+    resource: '@AppBundle/Resources/config/routing/value_seller_product.yml'
+    prefix: /value-seller-product
+
+app_user_per_order:
+    resource: '@AppBundle/Resources/config/routing/user_per_order.yml'
+    prefix: /user-per-order
+
+app_pago:
+    resource: '@AppBundle/Resources/config/routing/pago.yml'
+    prefix: /pago
+
+app_cartera:
+    resource: '@AppBundle/Resources/config/routing/cartera.yml'
+    prefix: /cartera
+
+app_embalaje:
+    resource: '@AppBundle/Resources/config/routing/embalaje.yml'
+    prefix: /embalaje
+
+app_embalaje_caja:
+    resource: '@AppBundle/Resources/config/routing/embalaje_caja.yml'
+    prefix: /embalaje-caja
+
+app_embalaje_pedido:
+    resource: '@AppBundle/Resources/config/routing/embalaje_pedido.yml'
+    prefix: /embalaje-pedido
+
+app_embalaje_caja_order:
+    resource: '@AppBundle/Resources/config/routing/embalaje_caja_order.yml'
+    prefix: /embalaje-caja-order

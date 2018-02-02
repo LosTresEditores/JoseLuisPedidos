@@ -1,0 +1,57 @@
+BackendBundle\Entity\Abono:
+    type: entity
+    table: abonos
+    indexes:
+        fk_abonos_consign:
+            columns:
+                - id_consignacion
+        fk_abonos_cartera:
+            columns:
+                - id_cartera
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        valor:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idCartera:
+            targetEntity: Cartera
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_cartera:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idConsignacion:
+            targetEntity: Consignacion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_consignacion:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

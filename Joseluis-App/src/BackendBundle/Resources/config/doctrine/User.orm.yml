@@ -1,0 +1,132 @@
+BackendBundle\Entity\User:
+    type: entity
+    table: users
+    indexes:
+        fk_users_roles:
+            columns:
+                - id_role
+        fk_users_seller_category:
+            columns:
+                - id_seller_category
+        fk_users_cities:
+            columns:
+                - id_city
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        surname:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        docType:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: doc_type
+        docNumber:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: doc_number
+        birth:
+            type: datetime
+            nullable: true
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        deletedAt:
+            type: datetime
+            nullable: true
+            column: deleted_at
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idCity:
+            targetEntity: City
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_city:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idRole:
+            targetEntity: Role
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_role:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSellerCategory:
+            targetEntity: SellerCategory
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_seller_category:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

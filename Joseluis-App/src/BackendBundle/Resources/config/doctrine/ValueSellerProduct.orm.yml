@@ -1,0 +1,72 @@
+BackendBundle\Entity\ValueSellerProduct:
+    type: entity
+    table: value_seller_product
+    indexes:
+        fk_vsp_seller_category:
+            columns:
+                - id_seller_category
+        fk_vsp_product_category:
+            columns:
+                - id_product_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        priceProduct:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_product
+        pricePremarcado:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_premarcado
+        priceCalificado:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_calificado
+        pricePlanb:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_planb
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idProductCategory:
+            targetEntity: ProductCategory
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_product_category:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSellerCategory:
+            targetEntity: SellerCategory
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_seller_category:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

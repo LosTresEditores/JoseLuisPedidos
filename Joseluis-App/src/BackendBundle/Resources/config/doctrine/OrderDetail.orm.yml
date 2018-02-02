@@ -1,0 +1,127 @@
+BackendBundle\Entity\OrderDetail:
+    type: entity
+    table: order_details
+    indexes:
+        fk_order_details_order:
+            columns:
+                - id_order
+        fk_order_details_product:
+            columns:
+                - id_product
+        fk_order_details_caliidn:
+            columns:
+                - id_caliidn
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        quantityOrder:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: quantity_order
+        quantityPremarcado:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: quantity_premarcado
+        quantityCalificado:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: quantity_calificado
+        quantityPlanb:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: quantity_planb
+        priceOrder:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_order
+        pricePremarcado:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_premarcado
+        priceCalificado:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_calificado
+        pricePlanb:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+            column: price_planb
+        observations:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        facturado:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idCaliidn:
+            targetEntity: JlCaliidn
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_caliidn:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idOrder:
+            targetEntity: Order
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_order:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idProduct:
+            targetEntity: Product
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_product:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

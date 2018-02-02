@@ -1,0 +1,14 @@
+shipping_type_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:ShippingType:new' }
+    methods: POST
+
+shipping_type_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:ShippingType:edit', id:null }
+    methods: POST
+
+shipping_type_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:ShippingType:list' }
+    methods: POST

@@ -1,0 +1,200 @@
+BackendBundle\Entity\Order:
+    type: entity
+    table: orders
+    indexes:
+        fk_orders_seller:
+            columns:
+                - id_seller
+        fk_orders_school:
+            columns:
+                - id_school
+        fk_orders_shipping:
+            columns:
+                - id_ship
+        fk_orders_shipping_type:
+            columns:
+                - id_ship_type
+        fk_orders_order_type:
+            columns:
+                - id_order_type
+        fk_orders_cities:
+            columns:
+                - id_city
+        fk_orders_userperorder:
+            columns:
+                - id_userperorder
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        guia:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        previousOrder:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: previous_order
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        canceledAt:
+            type: datetime
+            nullable: true
+            column: canceled_at
+        dateApplication:
+            type: datetime
+            nullable: true
+            column: date_application
+        dateShip:
+            type: datetime
+            nullable: true
+            column: date_ship
+        dateReturn:
+            type: datetime
+            nullable: true
+            column: date_return
+        observations:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        shipName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ship_name
+        shipTo:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ship_to
+        shipAddress:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ship_address
+        shipPhone:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: ship_phone
+        total:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        facturado:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idCity:
+            targetEntity: City
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_city:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idOrderType:
+            targetEntity: OrderType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_order_type:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSchool:
+            targetEntity: School
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_school:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSeller:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_seller:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idShip:
+            targetEntity: Shipping
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_ship:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idShipType:
+            targetEntity: ShippingType
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_ship_type:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUserperorder:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_userperorder:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

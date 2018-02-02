@@ -1,0 +1,19 @@
+consignacion_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:Consignacion:new' }
+    methods: POST
+
+consignacion_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Consignacion:edit', id:null }
+    methods: POST
+
+consignacion_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:Consignacion:list' }
+    methods: POST
+
+consignacion_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:Consignacion:search', search:null }
+    methods: POST

@@ -1,0 +1,19 @@
+city_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:City:new' }
+    methods: POST
+
+city_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:City:edit', id:null }
+    methods: POST
+
+city_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:City:list' }
+    methods: POST
+
+city_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:City:search', search:null }
+    methods: POST

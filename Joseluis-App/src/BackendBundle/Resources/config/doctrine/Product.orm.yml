@@ -1,0 +1,93 @@
+BackendBundle\Entity\Product:
+    type: entity
+    table: products
+    indexes:
+        fk_products_wineries:
+            columns:
+                - id_wineries
+        fk_products_product_cat:
+            columns:
+                - id_product_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        quantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        price:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        existence:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        orderProducto:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: order_producto
+        newOrder:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: new_order
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idProductCategory:
+            targetEntity: ProductCategory
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_product_category:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idWineries:
+            targetEntity: Wineries
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_wineries:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

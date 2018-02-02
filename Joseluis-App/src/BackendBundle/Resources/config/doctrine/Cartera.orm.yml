@@ -1,0 +1,61 @@
+BackendBundle\Entity\Cartera:
+    type: entity
+    table: cartera
+    indexes:
+        fk_cartera_order:
+            columns:
+                - id_order
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        valor:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        abono:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        pagado:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idOrder:
+            targetEntity: Order
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_order:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

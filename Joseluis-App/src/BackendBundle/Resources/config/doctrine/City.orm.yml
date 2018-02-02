@@ -1,0 +1,53 @@
+BackendBundle\Entity\City:
+    type: entity
+    table: cities
+    indexes:
+        fk_cities_departments:
+            columns:
+                - id_departments
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        abreviation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idDepartments:
+            targetEntity: Department
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_departments:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+user_per_order_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:UserPerOrder:new' }
+    methods: POST
+
+user_per_order_edit:
+    path: /edit
+    defaults: { _controller: 'AppBundle:UserPerOrder:edit' }
+    methods: POST
+
+user_per_order_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:UserPerOrder:list' }
+    methods: POST
+
+order_search_order:
+    path: /search-order/{search}
+    defaults: { _controller: 'AppBundle:UserPerOrder:searchOrder', search:null }
+    methods: POST

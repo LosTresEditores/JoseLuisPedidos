@@ -1,0 +1,19 @@
+nota_credito_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:NotaCredito:new' }
+    methods: POST
+
+nota_credito_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:NotaCredito:edit', id:null }
+    methods: POST
+
+nota_credito_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:NotaCredito:list' }
+    methods: POST
+
+nota_credito_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:NotaCredito:search', search:null }
+    methods: POST

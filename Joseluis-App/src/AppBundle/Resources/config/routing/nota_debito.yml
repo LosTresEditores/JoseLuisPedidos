@@ -1,0 +1,19 @@
+nota_debito_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:NotaDebito:new' }
+    methods: POST
+
+nota_debito_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:NotaDebito:edit', id:null }
+    methods: POST
+
+nota_debito_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:NotaDebito:list' }
+    methods: POST
+
+nota_debito_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:NotaDebito:search', search:null }
+    methods: POST

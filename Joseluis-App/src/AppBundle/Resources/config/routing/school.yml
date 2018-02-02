@@ -1,0 +1,24 @@
+school_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:School:new' }
+    methods: POST
+
+school_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:School:edit', id:null }
+    methods: POST
+
+school_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:School:list' }
+    methods: POST
+
+school_list_id:
+    path: /list-id/{id}
+    defaults: { _controller: 'AppBundle:School:listId', id:null }
+    methods: POST
+
+school_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:School:search', search:null }
+    methods: POST

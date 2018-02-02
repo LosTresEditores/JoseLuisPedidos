@@ -1,0 +1,48 @@
+BackendBundle\Entity\EmbCajaOrder:
+    type: entity
+    table: emb_caja_order
+    indexes:
+        fk_emb_caja_order_or:
+            columns:
+                - id_order
+        fk_emb_caja_order_ec:
+            columns:
+                - id_embalaje
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idEmbalaje:
+            targetEntity: Embalaje
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_embalaje:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idOrder:
+            targetEntity: Order
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_order:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

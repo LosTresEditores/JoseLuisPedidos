@@ -1,0 +1,41 @@
+BackendBundle\Entity\ProcessState:
+    type: entity
+    table: processes_state
+    indexes:
+        fk_processes_state_process:
+            columns:
+                - id_process
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idProcess:
+            targetEntity: Process
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_process:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

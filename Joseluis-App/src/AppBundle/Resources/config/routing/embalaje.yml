@@ -1,0 +1,14 @@
+embalaje_new:
+    path: /new/{id}
+    defaults: { _controller: 'AppBundle:Embalaje:new', id:null }
+    methods: POST
+
+embalaje_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Embalaje:edit', id:null }
+    methods: POST
+
+embalaje_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:Embalaje:list' }
+    methods: POST

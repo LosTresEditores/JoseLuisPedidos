@@ -1,0 +1,108 @@
+BackendBundle\Entity\School:
+    type: entity
+    table: schools
+    indexes:
+        fk_schools_school:
+            columns:
+                - id_school
+        fk_schools_city:
+            columns:
+                - id_city
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        dane:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        icfes:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        nit:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        email:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        web:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        image:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idCity:
+            targetEntity: City
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_city:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idSchool:
+            targetEntity: School
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_school:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,14 @@
+value_seller_product_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:ValueSellerProduct:new' }
+    methods: POST
+
+value_seller_product_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:ValueSellerProduct:edit', id:null }
+    methods: POST
+
+value_seller_product_list:
+    path: /list/{id}
+    defaults: { _controller: 'AppBundle:ValueSellerProduct:list', id:null }
+    methods: POST

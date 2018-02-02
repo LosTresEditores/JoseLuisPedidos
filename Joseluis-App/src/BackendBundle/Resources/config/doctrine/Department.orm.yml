@@ -1,0 +1,53 @@
+BackendBundle\Entity\Department:
+    type: entity
+    table: departments
+    indexes:
+        fk_departments_countries:
+            columns:
+                - id_country
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        code:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        abreviation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idCountry:
+            targetEntity: Country
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_country:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

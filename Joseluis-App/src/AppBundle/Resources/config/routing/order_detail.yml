@@ -1,0 +1,24 @@
+order_detail_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:OrderDetail:new' }
+    methods: POST
+
+order_detail_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:OrderDetail:edit', id:null }
+    methods: POST
+
+order_detail_edit_order:
+    path: /edit-order/{id}
+    defaults: { _controller: 'AppBundle:OrderDetail:editOrder', id:null }
+    methods: POST
+
+order_detail_edit_caliidn:
+    path: /edit-caliidn/{id}
+    defaults: { _controller: 'AppBundle:OrderDetail:editCaliidn', id:null }
+    methods: POST
+
+order_detail_list:
+    path: /list/{id}
+    defaults: { _controller: 'AppBundle:OrderDetail:list', id:null }
+    methods: POST

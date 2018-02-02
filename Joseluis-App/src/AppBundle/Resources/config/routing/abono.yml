@@ -1,0 +1,19 @@
+abono_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:Abono:new' }
+    methods: POST
+
+abono_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Abono:edit', id:null }
+    methods: POST
+
+abono_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:Abono:list' }
+    methods: POST
+
+abono_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:Abono:search', search:null }
+    methods: POST

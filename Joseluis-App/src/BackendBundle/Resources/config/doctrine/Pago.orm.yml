@@ -1,0 +1,50 @@
+BackendBundle\Entity\Pago:
+    type: entity
+    table: pagos
+    indexes:
+        fk_pagos_user:
+            columns:
+                - id_seller
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        valor:
+            type: decimal
+            nullable: true
+            precision: 10
+            scale: 0
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idSeller:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_seller:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

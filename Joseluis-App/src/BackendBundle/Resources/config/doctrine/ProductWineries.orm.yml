@@ -1,0 +1,76 @@
+BackendBundle\Entity\ProductWineries:
+    type: entity
+    table: product_wineries
+    indexes:
+        fk_product_wineries_wineries:
+            columns:
+                - id_wineries
+        fk_product_wineries_product:
+            columns:
+                - id_product
+        fk_product_wineries_user:
+            columns:
+                - id_user
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        quantity:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idProduct:
+            targetEntity: Product
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_product:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUser:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idWineries:
+            targetEntity: Wineries
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_wineries:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

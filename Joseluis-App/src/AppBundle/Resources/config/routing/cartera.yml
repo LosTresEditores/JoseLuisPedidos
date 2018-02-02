@@ -1,0 +1,29 @@
+cartera_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:Cartera:new' }
+    methods: POST
+
+cartera_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Cartera:edit', id:null }
+    methods: POST
+
+cartera_list:
+    path: /list
+    defaults: { _controller: 'AppBundle:Cartera:list' }
+    methods: POST
+
+cartera_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:Cartera:search', search:null }
+    methods: POST
+
+order_report_week:
+    path: /report-week
+    defaults: { _controller: 'AppBundle:Cartera:reportWeek' }
+    methods: POST
+
+order_report_age:
+    path: /report-age
+    defaults: { _controller: 'AppBundle:Cartera:reportAge' }
+    methods: POST

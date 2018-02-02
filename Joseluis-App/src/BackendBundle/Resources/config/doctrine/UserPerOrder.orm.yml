@@ -1,0 +1,65 @@
+BackendBundle\Entity\UserPerOrder:
+    type: entity
+    table: users_per_order
+    indexes:
+        fk_upo_user:
+            columns:
+                - id_user
+        fk_upo_process_state:
+            columns:
+                - id_process_state
+        fk_upo_order:
+            columns:
+                - id_order
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    manyToOne:
+        idOrder:
+            targetEntity: Order
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_order:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idProcessState:
+            targetEntity: ProcessState
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_process_state:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUser:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_user:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

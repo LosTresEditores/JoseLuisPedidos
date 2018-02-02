@@ -1,0 +1,19 @@
+pago_new:
+    path: /new
+    defaults: { _controller: 'AppBundle:Pago:new' }
+    methods: POST
+
+pago_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Pago:edit', id:null }
+    methods: POST
+
+pago_list:
+    path: /list/{id}
+    defaults: { _controller: 'AppBundle:Pago:list', id:null }
+    methods: POST
+
+pago_search:
+    path: /search/{search}
+    defaults: { _controller: 'AppBundle:Pago:search', search:null }
+    methods: POST

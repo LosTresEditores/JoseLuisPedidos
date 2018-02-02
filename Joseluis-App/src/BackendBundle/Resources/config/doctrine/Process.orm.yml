@@ -1,0 +1,32 @@
+BackendBundle\Entity\Process:
+    type: entity
+    table: processes
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        color:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+        state:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }
