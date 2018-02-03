@@ -18,12 +18,17 @@ cartera_search:
     defaults: { _controller: 'AppBundle:Cartera:search', search:null }
     methods: POST
 
-order_report_week:
+cartera_report_week:
     path: /report-week
     defaults: { _controller: 'AppBundle:Cartera:reportWeek' }
     methods: POST
 
-order_report_age:
+cartera_report_age:
     path: /report-age
     defaults: { _controller: 'AppBundle:Cartera:reportAge' }
+    methods: POST
+
+cartera_report_detail:
+    path: /report-detail/{id}
+    defaults: { _controller: 'AppBundle:Cartera:reportDetail', id:null }
     methods: POST

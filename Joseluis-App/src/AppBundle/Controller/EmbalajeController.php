@@ -54,40 +54,54 @@
 						)
 					);
 					
-					if ($id_embalaje)
-					
-					if ($idUser != null && $id_order != null) {
-						$embalaje = new Embalaje();
-						$embalaje->setIdOrder($id_order);
-						$embalaje->setIdUser($idUser);
-						$embalaje->setCreatedAt($createdAt);
-						$embalaje->setState($state);
-						
-						$em->persist($embalaje);
-						$em->flush();
-						
-						$stateEO = 'ACTIVO';
-						
-						$embalajeOrder = new EmbCajaOrder();
-						$embalajeOrder->setIdEmbalaje($embalaje);
-						$embalajeOrder->setIdOrder($id_order);
-						$embalajeOrder->setState($stateEO);
-						
-						$em->persist($embalajeOrder);
-						$em->flush();
+					if ($id_embalaje == null) {
+						if ($idUser != null && $id_order != null) {
+							$embalaje = new Embalaje();
+							$embalaje->setIdOrder($id_order);
+							$embalaje->setIdUser($idUser);
+							$embalaje->setCreatedAt($createdAt);
+							$embalaje->setState($state);
+							
+							$em->persist($embalaje);
+							$em->flush();
+							
+							$stateEO = 'ACTIVO';
+							
+							$embalajeOrder = new EmbCajaOrder();
+							$embalajeOrder->setIdEmbalaje($embalaje);
+							$embalajeOrder->setIdOrder($id_order);
+							$embalajeOrder->setState($stateEO);
+							
+							$em->persist($embalajeOrder);
+							$em->flush();
+							
+							$data = array(
+								'status' => 'success',
+								'code' => 200,
+								'msg' => 'New embalaje created !!',
+								'data' => $embalaje,
+								'dataEO' => $embalajeOrder
+							);
+						} else {
+							$data = array(
+								'status' => 'error',
+								'code' => 400,
+								'msg' => 'Data incorrect !!'
+							);
+						}
+					} else {
+						$embalaje_order = $em->getRepository('BackendBundle:EmbCajaOrder')->findBy(
+							array(
+								'idEmbalaje' => $id_embalaje
+							)
+						);
 						
 						$data = array(
 							'status' => 'success',
 							'code' => 200,
 							'msg' => 'New embalaje created !!',
-							'data' => $embalaje,
-							'dataEO' => $embalajeOrder
-						);
-					} else {
-						$data = array(
-							'status' => 'error',
-							'code' => 400,
-							'msg' => 'Data incorrect !!'
+							'data' => $id_embalaje,
+							'dataEO' => $embalaje_order
 						);
 					}
 				} else {
@@ -104,7 +118,6 @@
 					'msg' => 'Authorization not valid !!'
 				);
 			}
-			
 			return $helpers->json($data);
 		}
 	}

@@ -340,6 +340,10 @@
 			return $helpers->json($data);
 		}
 		
+		public function reportDetailAction(Request $request, $id = null)
+		{
+			var_dump('aqui');die();
+		}
 		public function reportAgeAction(Request $request)
 		{
 			$helpers = $this->get(helpers::class);
